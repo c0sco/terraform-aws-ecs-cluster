@@ -161,7 +161,7 @@ resource "aws_autoscaling_group" "main" {
 
   launch_configuration = "${aws_launch_configuration.main.id}"
   termination_policies = ["OldestLaunchConfiguration", "Default"]
-  vpc_zone_identifier  = ["${var.subnet_ids}"]
+  vpc_zone_identifier  = var.subnet_ids
 
   desired_capacity = "${var.desired_capacity}"
   max_size         = "${var.max_size}"
